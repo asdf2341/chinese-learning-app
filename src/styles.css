@@ -1,0 +1,115 @@
+:root {
+  --primary: #e63946; --bg: #fafafa; --text: #171717; --white: #fff; --ok: #22c55e;
+  --muted: #6b7280; --line: #ececec;
+  --shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  font-family: system-ui, -apple-system, 'Segoe UI', 'Noto Sans SC', sans-serif;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--text); line-height: 1.5; }
+h1, h2, h3, p { margin: 0 0 8px; }
+h2 { font-size: 1.6rem; margin-top: 8px; }
+h3 { font-size: 1.15rem; }
+.muted { color: var(--muted); }
+.logo { font-size: 1.4rem; font-weight: 800; letter-spacing: -0.5px; } .logo b { color: var(--primary); }
+
+button {
+  font: inherit; font-weight: 600; cursor: pointer; border: 2px solid var(--primary);
+  background: var(--primary); color: var(--white); padding: 10px 18px; border-radius: 12px;
+}
+button:hover:not(:disabled) { filter: brightness(0.94); }
+button:disabled { opacity: 0.4; cursor: not-allowed; }
+button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible { outline: 3px solid rgba(230, 57, 70, 0.4); outline-offset: 2px; }
+button.ghost { background: var(--white); color: var(--text); border-color: var(--line); }
+button.danger { color: var(--primary); }
+button.danger-fill { background: var(--text); border-color: var(--text); }
+button.link { background: none; border: 0; color: var(--muted); padding: 4px 0; }
+button.logo { color: var(--text); font-size: 1.4rem; }
+button.round { border-radius: 50%; width: 52px; height: 52px; padding: 0; font-size: 1.3rem; }
+
+label { display: block; font-size: 0.9rem; font-weight: 600; margin-bottom: 12px; }
+input, select, textarea {
+  display: block; width: 100%; margin-top: 4px; font: inherit; padding: 10px 12px;
+  border: 1.5px solid var(--line); border-radius: 10px; background: var(--white);
+}
+.card { background: var(--white); border-radius: 20px; padding: 20px; margin: 12px 0; box-shadow: var(--shadow); }
+.row { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
+.actions { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 8px; }
+.grid, .grid2 { display: grid; gap: 12px; }
+.grid { grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
+.grid2 { grid-template-columns: 1fr 1fr; }
+.center { text-align: center; }
+.scroll { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; }
+th, td { text-align: left; padding: 10px 8px; border-bottom: 1px solid var(--line); white-space: nowrap; }
+
+/* Вход */
+.auth { min-height: 100vh; display: grid; place-items: center; padding: 16px; }
+.auth .card { width: 100%; max-width: 400px; } .auth button { width: 100%; margin-top: 8px; }
+
+/* Кабинет преподавателя: desktop-first */
+.shell { display: grid; grid-template-columns: 240px 1fr; min-height: 100vh; }
+.shell aside { background: var(--white); border-right: 1px solid var(--line); padding: 24px 16px; display: flex; flex-direction: column; gap: 24px; }
+.shell nav { display: flex; flex-direction: column; gap: 6px; flex: 1; }
+.shell nav button { background: none; color: var(--text); border: 0; text-align: left; }
+.shell nav button.on { background: rgba(230, 57, 70, 0.1); color: var(--primary); }
+.who { display: flex; flex-direction: column; gap: 4px; font-size: 0.9rem; }
+.shell main { padding: 32px; max-width: 960px; width: 100%; }
+@media (max-width: 767px) {
+  .shell { grid-template-columns: 1fr; }
+  .shell aside { flex-direction: row; align-items: center; flex-wrap: wrap; padding: 12px 16px; gap: 12px; border-right: 0; border-bottom: 1px solid var(--line); }
+  .shell nav { flex-direction: row; flex: initial; }
+  .shell main { padding: 16px; }
+  .grid2 { grid-template-columns: 1fr; }
+}
+
+/* Студент: mobile-first, один экран — одно действие */
+.student header { display: flex; justify-content: space-between; align-items: center; padding: 12px 16px; }
+.student main { max-width: 640px; margin: 0 auto; padding: 8px 16px 40px; }
+.bar { height: 10px; background: var(--line); border-radius: 99px; overflow: hidden; margin: 8px 0 12px; }
+.bar i { display: block; height: 100%; background: var(--primary); border-radius: 99px; transition: width 0.3s; }
+.screen { min-height: 300px; display: flex; flex-direction: column; justify-content: center; }
+.nav { display: flex; justify-content: space-between; gap: 12px; } .nav button { flex: 1; }
+.word { font-size: 4rem; font-weight: 700; margin: 0; line-height: 1.2; }
+.pinyin { font-size: 1.4rem; color: var(--primary); }
+.big { font-size: 3rem; font-weight: 800; }
+.pre { white-space: pre-wrap; font-size: 1.15rem; }
+.opts { display: grid; gap: 10px; margin-top: 12px; }
+.opt, .chip { background: var(--white); color: var(--text); border: 2px solid var(--line); font-size: 1.15rem; text-align: left; }
+.opt.right { border-color: var(--ok); background: rgba(34, 197, 94, 0.12); opacity: 1; }
+.opt.wrong { border-color: var(--primary); background: rgba(230, 57, 70, 0.1); opacity: 1; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0; } .chip { font-size: 1.4rem; }
+.slot { min-height: 64px; border-bottom: 3px solid var(--line); font-size: 1.8rem; padding: 8px 0; }
+.ok { color: var(--ok); font-weight: 700; } .bad { color: var(--primary); font-weight: 600; }
+.lesson-row { display: flex; align-items: center; gap: 14px; width: 100%; text-align: left; color: var(--text); border: 0; }
+.lesson-row small { display: block; } .lesson-row em { margin-left: auto; font-style: normal; font-weight: 700; }
+.tick { width: 28px; height: 28px; border-radius: 50%; border: 2px solid var(--line); display: grid; place-items: center; color: var(--white); flex: none; }
+.tick.on { background: var(--ok); border-color: var(--ok); }
+.rec { margin-top: 16px; display: grid; gap: 8px; justify-items: center; }
+@media (prefers-reduced-motion: reduce) { .bar i { transition: none; } }
+
+/* Игровой режим */
+.hud { display: flex; gap: 14px; align-items: center; font-weight: 700; } .hud span:first-child { margin-right: auto; font-weight: 400; }
+.fb { margin-top: 16px; padding: 16px; border-radius: 16px; text-align: center; }
+.fb.good { background: rgba(34, 197, 94, 0.12); } .fb.miss { background: rgba(230, 57, 70, 0.08); text-align: left; }
+.pop { font-size: 2.4rem; color: var(--ok); animation: pop 0.35s cubic-bezier(0.2, 1.6, 0.4, 1); }
+.xp { font-size: 1.4rem; font-weight: 800; color: var(--ok); animation: rise 0.4s ease-out; }
+@keyframes pop { from { transform: scale(0.3); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+@keyframes rise { from { transform: translateY(8px); opacity: 0; } to { transform: none; opacity: 1; } }
+.badge { margin-left: 8px; padding: 2px 8px; border-radius: 99px; background: rgba(230, 57, 70, 0.1); color: var(--primary); font-weight: 700; }
+.loading { display: flex; align-items: center; gap: 10px; font-weight: 600; }
+.spin { width: 18px; height: 18px; border: 3px solid var(--line); border-top-color: var(--primary); border-radius: 50%; animation: turn 0.8s linear infinite; }
+@keyframes turn { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .pop, .xp, .spin { animation: none; } }
+
+/* Разделы урока */
+.tabs { display: flex; gap: 8px; overflow-x: auto; margin: 8px 0 12px; }
+.tabs button { background: var(--white); color: var(--text); border-color: var(--line); white-space: nowrap; }
+.tabs button.on { background: var(--primary); color: var(--white); border-color: var(--primary); }
+.zh { font-size: 1.6rem; margin: 0 0 2px; }
+.line { padding: 10px 0; border-bottom: 1px solid var(--line); } .line:last-child { border: 0; }
+.line p { margin: 0; }
+.w { background: none; border: 0; border-bottom: 2px dotted var(--primary); color: inherit; font: inherit; padding: 0; border-radius: 0; }
+.wordcard { position: fixed; left: 50%; bottom: 16px; transform: translateX(-50%); width: min(92vw, 360px); text-align: center; background: var(--white); border-radius: 20px; padding: 16px; box-shadow: 0 8px 40px rgba(0, 0, 0, 0.2); animation: rise 0.25s ease-out; }
+.wordcard .link { position: absolute; right: 12px; top: 8px; } .wordcard .word { font-size: 2.6rem; }
+.trans { font-size: 1.6rem; font-weight: 700; }
+.pattern { background: rgba(230, 57, 70, 0.08); border-radius: 12px; padding: 10px 14px; font-weight: 700; }

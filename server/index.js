@@ -415,4 +415,8 @@ app.post('/api/activities/:id/regenerate', auth, only('TEACHER'), aiRoute(async 
 
 // Продакшн: раздаём собранный фронтенд
 app.use(express.static('dist'));
-app.listen(3001, () => console.log('LinguaLab API: http://localhost:3001'));
+const PORT = process.env.PORT || 3001;
+
+app.listen(PORT, () => {
+  console.log(`LinguaLab API running on port ${PORT}`);
+});
